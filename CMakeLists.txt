@@ -5,7 +5,8 @@ project(TolibjonProductionVocal VERSION 1.0.0)
 add_subdirectory(JUCE)
 
 juce_add_plugin(TolibjonProduction
-    COMPANY_NAME "Tolibjon Production"
+    COMPANY_NAME "TolibjonProduction"
+    BUNDLE_ID "com.TolibjonProduction.VocalStrip"
     PLUGIN_NAME "Tolibjon Production Vocal Strip"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
@@ -19,12 +20,15 @@ juce_add_plugin(TolibjonProduction
     PRODUCT_NAME "Tolibjon Production Vocal Strip"
 )
 
+file(GLOB PluginSourceFiles 
+    "*.cpp" "*.h"
+    "Source/*.cpp" "Source/*.h"
+    "Источник/*.cpp" "Источник/*.h"
+)
+
 target_sources(TolibjonProduction
     PRIVATE
-        Source/PluginProcessor.cpp
-        Source/PluginProcessor.h
-        Source/PluginEditor.cpp
-        Source/PluginEditor.h
+        ${PluginSourceFiles}
 )
 
 target_compile_definitions(TolibjonProduction
