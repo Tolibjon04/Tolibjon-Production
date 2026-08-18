@@ -19,12 +19,16 @@ juce_add_plugin(TolibjonProduction
     PRODUCT_NAME "Tolibjon Production Vocal Strip"
 )
 
+# Керакли JUCE Header файлини яратиш
 juce_generate_juce_header(TolibjonProduction)
 
-# Папка номи қандай бўлишидан қатъи назар, барча .cpp ва .h файлларни автоматик топиш:
-file(GLOB_RECURSE SourceFiles CONFIGURE_DEPENDS "*.cpp" "*.h")
+# Файлларни аниқ топиш (эски русча ёки янги инглизча папкадан бўлса ҳам)
+file(GLOB PluginSources 
+    "Source/*.cpp" "Source/*.h"
+    "Источник/*.cpp" "Источник/*.h"
+)
 
-target_sources(TolibjonProduction PRIVATE ${SourceFiles})
+target_sources(TolibjonProduction PRIVATE ${PluginSources})
 
 target_compile_definitions(TolibjonProduction
     PUBLIC
