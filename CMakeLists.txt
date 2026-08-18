@@ -20,14 +20,12 @@ juce_add_plugin(TolibjonProduction
     PRODUCT_NAME "Tolibjon Production Vocal Strip"
 )
 
-file(GLOB_RECURSE PluginSourceFiles CONFIGURE_DEPENDS
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
-)
-
 target_sources(TolibjonProduction
     PRIVATE
-        ${PluginSourceFiles}
+        "Источник/PluginProcessor.cpp"
+        "Источник/PluginProcessor.h"
+        "Источник/PluginEditor.cpp"
+        "Источник/PluginEditor.h"
 )
 
 target_compile_definitions(TolibjonProduction
