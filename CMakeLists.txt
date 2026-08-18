@@ -22,10 +22,10 @@ juce_add_plugin(TolibjonProduction
 
 target_sources(TolibjonProduction
     PRIVATE
-        "Источник/PluginProcessor.cpp"
-        "Источник/PluginProcessor.h"
-        "Источник/PluginEditor.cpp"
-        "Источник/PluginEditor.h"
+        "Source/PluginProcessor.cpp"
+        "Source/PluginProcessor.h"
+        "Source/PluginEditor.cpp"
+        "Source/PluginEditor.h"
 )
 
 target_compile_definitions(TolibjonProduction
