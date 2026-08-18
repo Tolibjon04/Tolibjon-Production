@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.22)
-
 project(TolibjonProductionVocal VERSION 1.0.0)
 
 add_subdirectory(JUCE)
@@ -20,13 +19,12 @@ juce_add_plugin(TolibjonProduction
     PRODUCT_NAME "Tolibjon Production Vocal Strip"
 )
 
-target_sources(TolibjonProduction
-    PRIVATE
-        "Source/PluginProcessor.cpp"
-        "Source/PluginProcessor.h"
-        "Source/PluginEditor.cpp"
-        "Source/PluginEditor.h"
-)
+juce_generate_juce_header(TolibjonProduction)
+
+# Папка номи қандай бўлишидан қатъи назар, барча .cpp ва .h файлларни автоматик топиш:
+file(GLOB_RECURSE SourceFiles CONFIGURE_DEPENDS "*.cpp" "*.h")
+
+target_sources(TolibjonProduction PRIVATE ${SourceFiles})
 
 target_compile_definitions(TolibjonProduction
     PUBLIC
